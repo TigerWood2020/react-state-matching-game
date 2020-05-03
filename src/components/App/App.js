@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OptionsPanel from '../OptionsPanel'
 import Board from '../Board'
-import { createTiles } from '../../misc/utils'
+import { createTiles, indexOfSelected } from '../../misc/utils'
 
 import './App.css';
 
@@ -61,20 +61,20 @@ class App extends Component{
       tiles: createTiles(state.numTiles, this.handleTileClicked)
     }))
   }
-  
+
   render() {
   return (
     <div className="App">
       <header className="App-header">
         Turbo-Matcher
       </header>
-      <OptionsPanel playing={this.state.playing} numTiles={this.state.numTiles} startGame={this.startGame} />
+        <OptionsPanel />
+        <Board />
+        <OptionsPanel playing={this.state.playing} numTiles={this.state.numTiles} startGame={this.startGame} />
         <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
       }
     </div>
   );
-
   }
 }
-
 export default App;
